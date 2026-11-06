@@ -1,3 +1,5 @@
+import {useMemo} from "react";
+
 const categories = [
   { name: "Moradia", amount: "R$ 1.450,00", percent: 62, color: "purple" },
   { name: "Alimentação", amount: "R$ 520,00", percent: 22, color: "blue" },
@@ -6,6 +8,12 @@ const categories = [
 ];
 
 export default function SpendingBreakdown() {
+    const valorTotal = useMemo(() => {
+       return categories.reduce((acc, item) => {
+           return acc + parseInt(item.amount.split(' ')[1].replaceAll(".", ""));
+       }, 0);
+    });
+
   return (
     <section className="panel breakdown-panel">
       <div className="panel-heading">
@@ -16,8 +24,7 @@ export default function SpendingBreakdown() {
         <button className="more-button" type="button" aria-label="Mais opções">···</button>
       </div>
       <div className="donut-wrap">
-        {/* DESAFIO: calcular os segmentos a partir das transações. */}
-        <div className="donut-chart"><div><strong>R$ 2.340</strong><span>Total gasto</span></div></div>
+        <div className="donut-chart"><div><strong>R$ {valorTotal}</strong><span>Total gasto</span></div></div>
       </div>
       <div className="category-list">
         {categories.map((category) => (
