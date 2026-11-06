@@ -22,39 +22,6 @@ Abra o endereço indicado pelo Vite no terminal.
 - Layout responsivo.
 - Dados estáticos de demonstração.
 
-## O que você deve implementar
-
-### Etapa 1 — Estado
-- [ ] Criar estado para a lista de transações com `useState`.
-- [ ] Criar estado para os campos do formulário.
-- [ ] Criar estado para os filtros.
-
-### Etapa 2 — Operações
-- [ ] Adicionar uma receita ou despesa.
-- [ ] Excluir uma transação.
-- [ ] Editar uma transação.
-- [ ] Validar os campos obrigatórios.
-
-### Etapa 3 — Dados calculados
-- [ ] Calcular saldo total.
-- [ ] Calcular receitas do mês.
-- [ ] Calcular despesas do mês.
-- [ ] Calcular economia mensal.
-- [ ] Agrupar despesas por categoria.
-- [ ] Fazer o gráfico refletir os dados reais.
-
-### Etapa 4 — Filtros
-- [ ] Pesquisar pelo nome da transação.
-- [ ] Filtrar por categoria.
-- [ ] Filtrar por tipo (receita/despesa).
-- [ ] Filtrar por período.
-
-### Etapa 5 — Persistência e qualidade
-- [ ] Persistir os dados em `localStorage`.
-- [ ] Exibir estado vazio quando não houver transações.
-- [ ] Exibir feedback de sucesso e erro.
-- [ ] Testar os principais fluxos.
-
 ## Regras do desafio
 
 1. Não instale bibliotecas de gerenciamento de estado.
