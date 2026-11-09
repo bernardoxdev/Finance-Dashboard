@@ -1,8 +1,7 @@
 import {useMemo} from "react";
-import {transactionsBase} from "../data/transactions.js";
 import {categories} from "../data/categories.js";
 
-export default function SpendingBreakdown() {
+export default function SpendingBreakdown({ transactionsBase }) {
     const valorTotal = useMemo(() => {
         return transactionsBase.reduce((acc, item) => {
             if (item.type === "expense") {
@@ -11,7 +10,7 @@ export default function SpendingBreakdown() {
 
             return acc;
         }, 0);
-    }, []);
+    }, [transactionsBase]);
 
     const categoriesTratada = [];
 

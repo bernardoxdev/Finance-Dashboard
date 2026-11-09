@@ -10,6 +10,14 @@ export default function TransactionForm({ onClose, onSubmit }) {
         type: "expense",
     });
 
+    function formatDate(date) {
+        return new Date(`${date}T12:00:00`).toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        }).replace(".", "");
+    }
+
     function handleChange(event) {
         const { name, value } = event.target;
 
@@ -35,6 +43,7 @@ export default function TransactionForm({ onClose, onSubmit }) {
         const newTransaction = {
             id: crypto.randomUUID(),
             ...formData,
+            date: formatDate(formData.date),
             amount: Number(formData.amount),
             symbol: formData.type === "income" ? "+" : "-",
         };

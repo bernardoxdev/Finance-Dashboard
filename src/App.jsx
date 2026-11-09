@@ -8,10 +8,14 @@ import TransactionForm from "./components/TransactionForm.jsx";
 
 import { transactionsBase } from "./data/transactions.js";
 import { summaryBase } from "./data/summary.js"
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 export default function App() {
-    const [transactions, setTransactions] = useState(transactionsBase);
+    const [transactions, setTransactions] = useState(() => {
+        const savedTransactions = localStorage.getItem("transactions");
+
+        return savedTransactions ? JSON.parse(savedTransactions) : transactionsBase;
+    });
     const [summary, setSummary] = useState(summaryBase);
     const [showForm, setShowForm] = useState(false);
 
@@ -21,6 +25,10 @@ export default function App() {
             ...previous,
         ]);
     }
+
+    useEffect(() => {
+        localStorage.setItem("transactions", JSON.stringify(transactions));
+    }, [transactions]);
 
     return (
         <div className="app-shell">
@@ -49,7 +57,7 @@ export default function App() {
 
                     <section className="dashboard-grid">
                         <CashFlowPanel/>
-                        <SpendingBreakdown/>
+                        <SpendingBreakdown transactionsBase={transactions}/>
                     </section>
 
                     <TransactionsPanel items={transactions}/>
