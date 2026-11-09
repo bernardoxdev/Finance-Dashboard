@@ -7,6 +7,11 @@ const bars = [
   { month: "Nov", income: 94, expense: 39 }
 ];
 
+const filters = [
+    { id: 1, label: "Ultimos 6 meses" },
+    { id: 2, label: "Ultimos 3 meses" }
+]
+
 export default function CashFlowPanel() {
   return (
     <section className="panel cashflow-panel">

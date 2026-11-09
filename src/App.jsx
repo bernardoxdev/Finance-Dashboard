@@ -10,11 +10,7 @@ import { transactionsBase } from "./data/transactions.js";
 import { summaryBase } from "./data/summary.js"
 import { useState } from "react";
 
-// Dados estáticos apenas para visualizar o template.
-// DESAFIO: substitua por estado React e implemente as operações.
-
 export default function App() {
-    // DESAFIO: adicionar estado para transações, filtros e formulário.
     const [transactions, setTransactions] = useState(transactionsBase);
     const [summary, setSummary] = useState(summaryBase);
     const [showForm, setShowForm] = useState(false);
